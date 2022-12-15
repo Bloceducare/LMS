@@ -15,11 +15,20 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->ulid('reference')->unique();
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('role', 191);
+            $table->boolean("active")->default(true);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('wallet_address')->unique()->nullable();
+            $table->string('resident_address')->nullable();
+            $table->foreignIdFor(Cohort::class)->nullable();
+            $table->foreignIdFor(Track::class)->nullable();
+            $table->foreignIdFor(Country::class)->nullable();
             $table->timestamps();
         });
     }
