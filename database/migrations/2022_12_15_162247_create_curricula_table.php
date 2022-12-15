@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Track;
+use App\Models\Cohort;
+use App\Models\Module;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -15,6 +18,10 @@ return new class extends Migration
     {
         Schema::create('curricula', function (Blueprint $table) {
             $table->id();
+            $table->ulid('reference')->unique();
+            $table->foreignIdFor(Module::class)->nullable();
+            $table->foreignIdFor(Cohort::class)->nullable();
+            $table->foreignIdFor(Track::class)->nullable();
             $table->timestamps();
         });
     }
