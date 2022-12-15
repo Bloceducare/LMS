@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->ulid('reference')->unique();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('role', 191);
@@ -23,10 +24,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('cohort')->nullable();
-            $table->string('track')->nullable();
-            $table->string('wallet_address')->unique();
+            $table->string('wallet_address')->unique()->nullable();
             $table->string('resident_address')->nullable();
+            $table->foreignIdFor(Cohort::class)->nullable();
+            $table->foreignIdFor(Track::class)->nullable();
+            $table->foreignIdFor(Country::class)->nullable();
             $table->timestamps();
         });
     }
