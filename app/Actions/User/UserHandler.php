@@ -31,6 +31,5 @@ class UserHandler
         $user = User::find($request->user_id);
         $user->update(['role' => $request->role]);
         return $user;
-
     }
 }
