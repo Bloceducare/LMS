@@ -8,6 +8,7 @@ use App\Actions\Group\GroupHandler;
 use App\Actions\Topic\TopicHandler;
 use App\Http\Controllers\Controller;
 use App\Actions\Module\ModuleHandler;
+use App\Actions\Resource\ResourceHandler;
 use App\Actions\Recording\RecordingHandler;
 use App\Actions\Curriculum\CurriculumHandler;
 
@@ -74,6 +75,11 @@ class MentorController extends Controller
     }
 
     public function uploadResource(Request $request){
+        $request->validate([
+            'title' => ['required', 'string'],
+            'link' => ['required', 'string'],
+        ]);
 
+        return ResourceHandler::uploadResources($request);
     }
 }
