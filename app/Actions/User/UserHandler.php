@@ -2,6 +2,10 @@
 
 namespace App\Actions\User;
 
+use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+
 class UserHandler
 {
     public static function createUser($request)
@@ -13,7 +17,7 @@ class UserHandler
             'role' => $request->role,
             'active' => true,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'cohort_id' => $request->cohort_id,
             'track_id' => $request->track_id,
             'group_id' => $request->role == "STUDENT" ? $request->group_id : NULL,

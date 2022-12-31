@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use App\Models\Group;
 use App\Models\Track;
 use App\Models\Cohort;
@@ -26,6 +27,7 @@ return new class extends Migration
             $table->foreignIdFor(Cohort::class)->nullable();
             $table->foreignIdFor(Track::class)->nullable();
             $table->foreignIdFor(Group::class)->nullable();
+            $table->foreignIdFor(User::class)->nullable();
             $table->timestamps();
         });
     }

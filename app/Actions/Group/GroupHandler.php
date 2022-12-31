@@ -2,13 +2,17 @@
 
 namespace App\Actions\Group;
 
+use App\Models\User;
+use App\Models\Group;
+use Illuminate\Support\Str;
+
 class GroupHandler
 {
     public static function createGroup($request)
     {
         return Group::create([
             'reference' => Str::ulid(),
-            'group_number' => $request->group_number
+            'name' => strtolower($request->name)
         ]);
     }
 

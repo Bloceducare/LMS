@@ -1,6 +1,9 @@
 <?php
 namespace App\Actions\Resource;
 
+use App\Models\Resource;
+use Illuminate\Support\Str;
+
 class ResourceHandler
 {
     public static function uploadResources($request)
@@ -11,5 +14,10 @@ class ResourceHandler
             'file_path' => $request->file,
             'link' => $request->link
         ]);
+    }
+
+    public static function resources()
+    {
+        return Resource::all();
     }
 }

@@ -1,6 +1,9 @@
 <?php
 namespace App\Actions\Recording;
 
+use App\Models\Recording;
+use Illuminate\Support\Str;
+
 class RecordingHandler
 {
     public static function uploadRecording($request)
@@ -14,5 +17,10 @@ class RecordingHandler
             'cohort_id' => $request->cohort_id,
             'track_id' => $request->track_id
         ]);
+    }
+
+    public static function recordings()
+    {
+        return Recording::all();
     }
 }
