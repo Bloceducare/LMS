@@ -31,6 +31,7 @@ Route::post('/mentor/create-curriculum', [MentorController::class, 'createCurric
 Route::post('/mentor/create-group', [MentorController::class, 'createGroup']);
 Route::post('/mentor/create-task', [MentorController::class, 'createTask']);
 Route::post('/mentor/upload-recording', [MentorController::class, 'uploadRecording']);
+Route::post('/mentor/upload-resource', [MentorController::class, 'uploadResource']);
 
 Route::get('/shared/users', [SharedController::class, 'users']);
 Route::get('/shared/cohorts', [SharedController::class, 'cohorts']);
