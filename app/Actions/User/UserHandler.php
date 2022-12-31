@@ -2,6 +2,9 @@
 
 namespace App\Actions\User;
 
+use App\Models\User;
+use Illuminate\Support\Str;
+
 class UserHandler
 {
     public static function createUser($request)
