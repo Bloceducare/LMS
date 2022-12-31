@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Group;
 use App\Models\Track;
 use App\Models\Cohort;
 use App\Models\Country;
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->ulid('reference')->unique();
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('role', 191);
+            $table->string('role', 191)->default('STUDENT');
             $table->boolean("active")->default(true);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -32,6 +33,7 @@ return new class extends Migration
             $table->foreignIdFor(Cohort::class)->nullable();
             $table->foreignIdFor(Track::class)->nullable();
             $table->foreignIdFor(Country::class)->nullable();
+            $table->foreignIdFor(Group::class)->nullable();
             $table->timestamps();
         });
     }

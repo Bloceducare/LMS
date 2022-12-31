@@ -11,8 +11,7 @@ class ModuleHandler
     {
         return Module::create([
             'reference' => Str::ulid(),
-            'title' => $request->title,
-            'cohort_id' => $request->cohort_id,
+            'title' => strtolower($request->title),
             'track_id' => $request->track_id
         ]);
     }

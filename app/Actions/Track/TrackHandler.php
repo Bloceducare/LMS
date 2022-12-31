@@ -11,7 +11,7 @@ class TrackHandler
     {
         return Track::create([
             'reference' => Str::ulid(),
-            'name' => $request->name
+            'name' => strtoupper($request->name)
         ]);
     }
 

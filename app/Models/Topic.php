@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {
     use HasFactory;
+    protected $fillable = ['reference', 'title', 'description', 'module_id'];
 }

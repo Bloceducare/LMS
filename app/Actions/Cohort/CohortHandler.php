@@ -11,7 +11,7 @@ class CohortHandler
     {
         return Cohort::create([
             'reference' => Str::ulid(),
-            'name' => $request->name
+            'name' => strtoupper($request->name)
         ]);
     }
 

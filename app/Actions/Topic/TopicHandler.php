@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 class TopicHandler
 {
-    public static function createTopic()
+    public static function createTopic($request)
     {
         return Topic::create([
             'reference' => Str::ulid(),
