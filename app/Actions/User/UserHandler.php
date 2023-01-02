@@ -23,6 +23,15 @@ class UserHandler
             'group_id' => $request->role == "STUDENT" ? $request->group_id : NULL,
             'country_id' => $request->country_id
         ]);
+
+        // $token = $user->createToken('lmsToken')->plainTextToken;
+
+        // $response = [
+        //     'user' => $user,
+        //     'token' => $token
+        // ];
+
+        // return response($response, 201);
     }
 
     public static function users()
