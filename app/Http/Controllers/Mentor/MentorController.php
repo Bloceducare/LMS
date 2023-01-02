@@ -11,6 +11,7 @@ use App\Actions\Module\ModuleHandler;
 use App\Actions\Resource\ResourceHandler;
 use App\Actions\Recording\RecordingHandler;
 use App\Actions\Curriculum\CurriculumHandler;
+use App\Actions\Notification\NotificationHandler;
 
 class MentorController extends Controller
 {
@@ -81,5 +82,13 @@ class MentorController extends Controller
         ]);
 
         return ResourceHandler::uploadResources($request);
+    }
+
+    public function sendNotification(Request $request){
+        $request->validate([
+            'message' => ['required', 'string']
+        ]);
+
+        return NotificationHandler::createNotification($request);
     }
 }
