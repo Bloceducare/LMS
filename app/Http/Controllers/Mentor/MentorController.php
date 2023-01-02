@@ -91,4 +91,8 @@ class MentorController extends Controller
 
         return NotificationHandler::createNotification($request);
     }
+
+    public function studentGroups(){
+        return GroupHandler::studentGroups();
+    }
 }

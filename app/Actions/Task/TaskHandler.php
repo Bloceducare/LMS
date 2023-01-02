@@ -36,4 +36,14 @@ class TaskHandler
 
         return $task;
     }
+
+    public static function tasks()
+    {
+        return Task::paginate(3);
+    }
+
+    public static function studentTasks()
+    {
+        return Task::whereGroupId(auth()->user()->group_id)->orWhere('user_id', auth()->user()->id)->get();
+    }
 }

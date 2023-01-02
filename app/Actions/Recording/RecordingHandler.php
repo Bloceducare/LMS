@@ -23,4 +23,9 @@ class RecordingHandler
     {
         return Recording::all();
     }
+
+    public static function studentRecordings()
+    {
+        return Recording::whereCohortId(auth()->user()->cohort_id)->whereTrackId(auth()->user()->track_id)->get();
+    }
 }

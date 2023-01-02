@@ -41,12 +41,20 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/mentor/upload-recording', [MentorController::class, 'uploadRecording']);
     Route::post('/mentor/upload-resource', [MentorController::class, 'uploadResource']);
     Route::post('/mentor/send-notification', [MentorController::class, 'sendNotification']);
+    Route::get('/mentor/student-groups', [MentorController::class, 'studentGroups']);
 
     Route::get('/shared/users', [SharedController::class, 'users']);
     Route::get('/shared/cohorts', [SharedController::class, 'cohorts']);
     Route::get('/shared/tracks', [SharedController::class, 'tracks']);
+    Route::get('/shared/tasks', [SharedController::class, 'tasks']);
 
     Route::get('/student/notifications', [StudentController::class, 'notifications']);
+    Route::get('/student/curriculum', [StudentController::class, 'curriculum']);
+    Route::get('/student/resources', [StudentController::class, 'resources']);
+    Route::get('/student/recordings', [StudentController::class, 'recordings']);
+    Route::get('/student/group-members', [StudentController::class, 'groupMembers']);
+    Route::get('/student/tasks', [StudentController::class, 'tasks']);
+
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });

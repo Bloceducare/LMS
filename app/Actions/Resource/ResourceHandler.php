@@ -18,6 +18,6 @@ class ResourceHandler
 
     public static function resources()
     {
-        return Resource::all();
+        return Resource::paginate(8);
     }
 }

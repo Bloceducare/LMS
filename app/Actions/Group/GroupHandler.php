@@ -27,4 +27,14 @@ class GroupHandler
         $user->update(['group_id' => $request->group_id]);
         return $user;
     }
+
+    public static function groupMembers()
+    {
+        return User::whereGroupId(auth()->user()->group->id)->get()->except('id');
+    }
+
+    public static function studentGroups()
+    {
+        return response(Group::with('users')->get(), 200);  
+    }
 }
