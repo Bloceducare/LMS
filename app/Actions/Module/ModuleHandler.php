@@ -20,4 +20,9 @@ class ModuleHandler
     {
         return Module::all();
     }
+
+    public static function studentModules()
+    {
+        return Module::with('topics')->where(['track_id' => auth()->user()->track_id])->get();
+    }
 }
